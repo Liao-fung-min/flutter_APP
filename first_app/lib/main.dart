@@ -51,6 +51,14 @@ class MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   var _totalScore = 0;
   //設定方法
+
+  void _resetQuize() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
   void _answerQuestion(int score) {
     // var aBool = true;
     // aBool = false;
@@ -71,17 +79,18 @@ class MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('My First App'),
-          ),
-          body: _questionIndex < _questions.length
-              ? Quize(
-                  //去宣告另一個變數名稱
-                  answerQuestion: _answerQuestion,
-                  questionIndex: _questionIndex,
-                  questions: _questions,
-                )
-              : Result(_totalScore)),
+        appBar: AppBar(
+          title: Text('My First App'),
+        ),
+        body: _questionIndex < _questions.length
+            ? Quize(
+                //去宣告另一個變數名稱
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
+            : Result(_totalScore, _resetQuize),
+      ),
     );
   }
 }
