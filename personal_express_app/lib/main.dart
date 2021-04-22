@@ -29,6 +29,9 @@ class MyHomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
+  String titleInput; //名稱輸入
+  String amountInput; //價錢輸入
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +59,12 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: '品項'),
+
+                    onChanged: (val) => amountInput = val,
+                    //另一種寫法
+                    // onChanged: (val) {
+                    //   titleInput = val;
+                    // },
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: '價錢'),
