@@ -36,7 +36,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -45,6 +45,28 @@ class MyHomePage extends StatelessWidget {
               color: Colors.orange,
               child: Text('Chart!'),
               elevation: 20,
+            ),
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: <Widget>[
+                  TextField(
+                    decoration: InputDecoration(labelText: '品項'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: '價錢'),
+                  ),
+                  FlatButton(
+                    onPressed: () {},
+                    child: Text('增加項目'),
+                    textColor: Colors.purple,
+                  ),
+                ],
+              ),
             ),
           ),
           Column(
