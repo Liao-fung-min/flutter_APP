@@ -29,9 +29,10 @@ class MyHomePage extends StatelessWidget {
       date: DateTime.now(),
     ),
   ];
-  String titleInput; //名稱輸入
-  String amountInput; //價錢輸入
-
+  // String titleInput; //名稱輸入
+  // String amountInput; //價錢輸入
+  final titlController = TextEditingController();
+  final amountController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,8 +60,8 @@ class MyHomePage extends StatelessWidget {
                 children: <Widget>[
                   TextField(
                     decoration: InputDecoration(labelText: '品項'),
-
-                    onChanged: (val) => amountInput = val,
+                    controller: titlController,
+                    //onChanged: (val) => amountInput = val,
                     //另一種寫法
                     // onChanged: (val) {
                     //   titleInput = val;
@@ -68,9 +69,13 @@ class MyHomePage extends StatelessWidget {
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: '價錢'),
+                    controller: amountController,
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print(titlController.text);
+                      print(amountController.text);
+                    },
                     child: Text('增加項目'),
                     textColor: Colors.purple,
                   ),
