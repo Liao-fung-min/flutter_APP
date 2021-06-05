@@ -54,9 +54,26 @@ class _NewTransactionState extends State<NewTransaction> {
               onSubmitted: (_) => submitData(), //指定到submitData這個方法
               // onChanged: (val) => amountInput = val,
             ),
-            FlatButton(
+            Container(
+              height: 50,
+              child: Row(
+                children: <Widget>[
+                  Text('沒有資料可以選擇!'),
+                  FlatButton(
+                    textColor: Theme.of(context).primaryColor,
+                    onPressed: () {},
+                    child: Text(
+                      '選擇',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  )
+                ],
+              ),
+            ),
+            RaisedButton(
               child: Text('Add Transaction'),
-              textColor: Colors.purple,
+              color: Theme.of(context).primaryColor,
+              textColor: Theme.of(context).textTheme.button.color,
               onPressed: submitData,
             ),
           ],
